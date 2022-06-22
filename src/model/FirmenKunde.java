@@ -5,7 +5,7 @@ import jakarta.persistence.*;
 import java.sql.Timestamp;
 import java.util.Objects;
 
-@Entity public class FirmenKunde extends Kunde {
+@Entity @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS) public class FirmenKunde extends Kunde {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY) private long oid;
     private String firmenLangbezeichnung;
     private String firmenKuerzel;

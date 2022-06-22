@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 
 import java.util.Objects;
 
-@Entity public class Bausparvertrag extends Produkt {
+@Entity @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS) public class Bausparvertrag extends Produkt {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY) private long oid;
     private double monatlicheRate;
     private double praemie;

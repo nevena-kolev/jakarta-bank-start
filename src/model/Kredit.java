@@ -1,13 +1,10 @@
 package model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.util.Objects;
 
-@Entity public class Kredit extends Produkt {
+@Entity @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS) public class Kredit extends Produkt {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY) private long oid;
     private double basisKreditBetrag;
     private double aktuellerSaldo;

@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 
 import java.util.Objects;
 
-@Entity public class Sparbuch extends Produkt {
+@Entity @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS) public class Sparbuch extends Produkt {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY) private long oid;
     private float zinsSatz;
     private double aktuellerSparSaldo;

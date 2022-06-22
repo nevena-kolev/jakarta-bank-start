@@ -1,14 +1,11 @@
 package model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.sql.Timestamp;
 import java.util.Objects;
 
-@Entity public class PrivatKunde extends Kunde{
+@Entity @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS) public class PrivatKunde extends Kunde{
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY) private long oid;
     private String vorName;
     private String familienName;
